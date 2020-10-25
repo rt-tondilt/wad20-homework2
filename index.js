@@ -33,7 +33,9 @@ function makeMedia(media) {
         </div>`
     }
     if(media.type=='video'){
-        return "ERROR: TODO: Video showing not implemented."
+        return `<video controls>
+        <source src="${media.url}" type="video/mp4">
+        </video>`
     }
 }
 
