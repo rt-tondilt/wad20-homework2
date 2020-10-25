@@ -108,10 +108,36 @@ nav div.search-container > button {
     border-bottom-left-radius: 0;
 }
 
-nav div.avatar-container {
-    margin-right: 15px;
-    text-align: right;
-}
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #f9f9f9;
+    
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f9f9f9;}
+
+
 
 .main-container {
     width: 50%;
