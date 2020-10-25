@@ -63,3 +63,14 @@ function appendPost(post) {
         post
     )
 }
+
+function userInfo() {
+    $.get( "https://private-anon-3e8f2d9a55-wad20postit.apiary-mock.com/users/1", users => {
+        $(userListSelector).empty();
+        for (const user of users) {
+            console.log(user);
+        }
+    });
+}
+
+$("div a:first").replaceWith("<p>user.firstname</p>");
