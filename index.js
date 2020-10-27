@@ -1,6 +1,3 @@
-
-refreshPosts();
-
 const postListSelector = 'section.main-container';
 
 function refreshPosts() {
@@ -71,13 +68,15 @@ function appendPost(post) {
     })
 }
 
-function userInfo() {
-    $.get( "https://private-anon-3e8f2d9a55-wad20postit.apiary-mock.com/users/1", users => {
-        $(userListSelector).empty();
-        for (const user of users) {
-            console.log(user);
-        }
+function updateUserInfo() {
+    $.get( "https://private-anon-3e8f2d9a55-wad20postit.apiary-mock.com/users/1", user => {
+        console.log(user);
+        let userinfo = $("#userinfo");
+        userinfo.empty();
+        userinfo.append(`${user.firstname} ${user.lastname} <br> ${user.email} `);
+        $("#this-user-avatar").attr("src", user.avatar);
     });
 }
 
-$("div a:first").replaceWith("<p>user.firstname</p>");
+refreshPosts();
+updateUserInfo();
