@@ -7,7 +7,6 @@ function refreshPosts() {
     $.get( "https://private-anon-cb48b9226c-wad20postit.apiary-mock.com/posts", posts => {
         $(postListSelector).empty();
         for (const post of posts) {
-            console.log(post);
             appendPost(post);
         }
     });
@@ -50,18 +49,26 @@ function makeText(text) {
 
 
 function appendPost(post) {
+    id = post.id
 
     post = `<div class="post">
     ${makeAuthor(post.author, post.createTime)}
     ${makeMedia(post.media)}
     ${makeText(post.text)}
     <div class="post-actions">
-      <button type="button" name="like" class="like-button">${post.likes}</button>
+      <button type="button" name="like-${id}" class="like-button">${post.likes}</button>
     </div>
     </div>`
     $(postListSelector).append(
         post
     )
+    $(`button[name = "like-${id}"]`).click(function() {
+        if ($(this).css('background-color') == 'rgb(138, 138, 138)') {
+            $(this).css('background-color', '#3355aa')
+        } else {
+            $(this).css('background-color', '#8a8a8a')
+        }
+    })
 }
 
 function userInfo() {
